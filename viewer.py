@@ -13,7 +13,7 @@ def read_data(file_path):
     ext = os.path.splitext(file_path)[-1].lower()
 
     if ext == '.csv':
-        return pd.read_csv(file_path)
+        return pd.read_csv(file_path, sep="$")
     elif ext == '.xlsx':
         sheets = pd.ExcelFile(file_path).sheet_names
         return {sheet: pd.read_excel(file_path, sheet_name=sheet) for sheet in sheets}
